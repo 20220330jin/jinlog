@@ -5,13 +5,29 @@ import TodoList from "@/components/ui/TodoList";
 
 const TodoContainer = () => {
 
-    const {loading, todos} = useTodosController();
+    const {loading, todos, onCreateEmptyTodos, onDeleteTodos, onSearchTodos, onUpdateTodos} = useTodosController();
 
     console.log({loading, todos})
 
     return (
         <div>
-            <TodoList sharedUserFullName='test user' ownerUserId='ddd'/>
+            <TodoList
+                sharedUserFullName='test user'
+                ownerUserId='ddd'
+                loading={loading}
+                todoListData={todos}
+                isReadOnly={false}
+                onUpdate={onUpdateTodos}
+                onCreate={() => {
+                    onCreateEmptyTodos()
+                }}
+                onDelete={(id) => {
+                    onDeleteTodos(id)
+                }}
+                onSearch={(terms) => {
+                    onSearchTodos(terms)
+                }}
+            />
         </div>
     )
 }

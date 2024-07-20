@@ -6,7 +6,7 @@ type TodoDto = Database['public']['Tables']['todos_no_rls']['Row']
 
 const useTodosController = () => {
     /** Loading State **/
-    const [loading, setLoading] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(true);
     /** Todos State **/
     const [todos, setTodos] = useState<TodoDto[]>([]);
 
