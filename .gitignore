@@ -1,0 +1,8 @@
+.idea/inspectionProfiles/Project_Default.xml
+.idea/git_toolbox_blame.xml
+.idea
+jinlog/.env
+.DS_Store
+jinlog/package-lock.json
+jinlog/supabase/config.toml
+jinlog/supabase/seed.sql
