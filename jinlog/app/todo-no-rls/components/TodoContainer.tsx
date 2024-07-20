@@ -1,35 +1,17 @@
 'use client'
 
-import {useEffect} from "react";
-import {
-    createTodos,
-    deleteTodosHard,
-    deleteTodosSoft,
-    getTodos,
-    getTodosById,
-    getTodosBySearch,
-    updateTodos
-} from "@/apis/todos-no-rls";
+import useTodosController from "@/app/todo-no-rls/hooks/useTodosController";
+import TodoList from "@/components/ui/TodoList";
 
 const TodoContainer = () => {
-    let creates;
-    useEffect(() => {
-        getTodos();
-        getTodosById(3)
-        getTodosBySearch('Hello').then((res) => {
-            creates = res
-        })
-        updateTodos(5, 'update Todo')
-        // if (creates.length === 0) {
-        // }
-        // createTodos('create Todo')
-        deleteTodosSoft(4)
-        deleteTodosHard(7)
-    }, []);
+
+    const {loading, todos} = useTodosController();
+
+    console.log({loading, todos})
 
     return (
         <div>
-            TODO
+            <TodoList sharedUserFullName='test user' ownerUserId='ddd'/>
         </div>
     )
 }
