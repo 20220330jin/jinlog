@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
-import {createTodos, deleteTodosSoft, getTodos, getTodosBySearch, updateTodos} from "@/apis/todos-no-rls";
+// import {createTodos, deleteTodosSoft, getTodos, getTodosBySearch, updateTodos} from "@/apis/todos-no-rls";
+import {createTodos, deleteTodosSoft, getTodos, getTodosBySearch, updateTodos} from "@/actions/todo/todo.action";
 import {Database} from "@/types/supabase";
 
 type TodoDto = Database['public']['Tables']['todos_no_rls']['Row']
