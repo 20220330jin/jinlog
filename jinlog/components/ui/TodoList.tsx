@@ -2,20 +2,23 @@ import {IoSearchOutline, IoShareSocialOutline} from "react-icons/io5";
 import {useCopyToClipboard} from "usehooks-ts";
 import TodoListItem from "@/components/ui/TodoListItem";
 import {useState} from "react";
+import {Database} from "@/types/supabase";
+
+type TodoDto = Database['public']['Tables']['todos_with_rls']['Row']
 
 const TodoList = ({
                       sharedUserFullName = '',
                       ownerUserId = '',
                       loading = false,
-                      todoListData = [],
+                      todoListData = [] as TodoDto[],
                       isReadOnly = false,
-                      onUpdate = (id, updatedContent) => {
+                      onUpdate = (id: number, updatedContent: string) => {
                       },
                       onCreate = () => {
                       },
-                      onDelete = (id) => {
+                      onDelete = (id:number) => {
                       },
-                      onSearch = (terms) => {
+                      onSearch = (terms: string) => {
                       },
                   }) => {
     /****/
@@ -38,7 +41,7 @@ const TodoList = ({
     /**
      *
      */
-    const handleSearchEnd = () => {
+    const handleSearchEnd = (userSearchInput: any) => {
         onSearch(userSearchInput);
         setUserSearchInput('')
     }

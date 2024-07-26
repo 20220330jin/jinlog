@@ -1,9 +1,8 @@
 import {NextResponse} from "next/server";
-import {createServerSideClient} from "@/lib/supabase";
-import {getTodoActions} from "@/actions/todo/todo.action";
+import {getTodos} from "@/actions/todo/todo.action";
 
 export const GET = async () => {
-    const result = await getTodoActions();
+    const result = await getTodos();
 
 
     console.log("TODO", result)

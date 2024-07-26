@@ -1,8 +1,15 @@
 import {useState} from "react";
 import {AiOutlineDelete} from "react-icons/ai";
 import {CiCircleCheck, CiEdit} from "react-icons/ci";
+import {Database} from "@/types/supabase";
 
-const TodoListItem = ({todo, onDelete, onUpdate}) => {
+type TodoDto = Database['public']['Tables']['todos_with_rls']['Row']
+
+const TodoListItem = ({
+                          todo = {} as TodoDto,
+                          onDelete=(id: number)=>{},
+                          onUpdate=(id: number, updatedContent: string) => {},
+}) => {
     /** 수정모드 제어 state **/
     const [isEdit, setIsEdit] = useState(false);
     /** 입력 state **/
