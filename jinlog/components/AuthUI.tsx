@@ -3,7 +3,7 @@ import {Auth} from "@supabase/auth-ui-react";
 import {createSupabaseBrowserClient} from "@/lib/client/supabase";
 import {ThemeSupa} from "@supabase/auth-ui-shared";
 import useHydrate from "@/hooks/useHydrate";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {User} from "@supabase/auth-js";
 
 const AuthUI = () => {
@@ -16,11 +16,12 @@ const AuthUI = () => {
      * 유저정보 가져오기
      * - 구글로그인 후 성공시 유저정보가져오기
      */
-    const getUserInfo = async () => {
-        const result = await supabase.auth.getUser();
-        console.log(result)
-        if (result?.data?.user) setUser(result?.data?.user);
-    }
+    const getUserInfo = useCallback(
+        async () => {
+            const result = await supabase.auth.getUser();
+            console.log(result)
+            if (result?.data?.user) setUser(result?.data?.user);
+        }, [supabase])
 
     /**
      * 로그아웃
@@ -32,7 +33,7 @@ const AuthUI = () => {
 
     useEffect(() => {
         getUserInfo();
-    }, []);
+    }, [getUserInfo]);
 
     if (!isMount) return null;
 
