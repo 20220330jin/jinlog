@@ -1,10 +1,13 @@
-import Image from 'next/image'
-import TodoContainer from "@/app/todo-no-rls/components/TodoContainer";
-
-export default function Home() {
+const Page = () => {
     return (
-        <main>
-            <TodoContainer/>
+        <main className='px-40 flex flex-1'>
+            <div>
+                <div>
+                    <h1>Home Page</h1>
+                </div>
+            </div>
         </main>
     )
 }
+
+export default Page;

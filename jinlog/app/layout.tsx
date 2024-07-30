@@ -1,8 +1,10 @@
 import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
 import './globals.css'
-import AuthHeader from "@/components/AuthHeader";
 import {getUser} from "@/actions/auth/user.action";
+import AuthHeader from "@/components/AuthHeader";
+import JinHeader from "@/components/JinHeader";
+import HomeContainer from "@/app/(site)/HomeContainer";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -12,17 +14,21 @@ export const metadata: Metadata = {
 }
 
 export default async function RootLayout({
-                                       children,
-                                   }: {
+                                             children,
+                                         }: {
     children: React.ReactNode
 }) {
-    const user = await getUser();
-    console.log('user', user)
+    const user = await getUser({serverComponent: true});
     return (
         <html lang="en">
         <body className={inter.className}>
-        <AuthHeader user={user}/>
-        {children}
+        {/*<AuthHeader user={user}/>*/}
+        <div className='relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden'>
+            <div className='layout-container flex h-full grow flex-col'>
+                <JinHeader/>
+                {children}
+            </div>
+        </div>
         </body>
         </html>
     )

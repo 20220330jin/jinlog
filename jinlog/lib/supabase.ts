@@ -1,6 +1,6 @@
 // RouterHandler, RSC, Middleware, ServerActions
 // ServerActions, RouterHandler
-
+// 'use server'
 import {cookies} from "next/headers";
 import {createServerClient} from "@supabase/ssr";
 import {Database} from "@/types/supabase";

@@ -1,18 +1,11 @@
 import {useEffect, useState} from "react";
 // import {createTodos, deleteTodosSoft, getTodos, getTodosBySearch, updateTodos} from "@/apis/todos-no-rls";
-import {
-    createTodos,
-    deleteTodosSoft,
-    getTodos,
-    getTodosBySearch,
-    getTodosByUserId,
-    updateTodos
-} from "@/actions/todo/todo.action";
+import {createTodos, deleteTodosSoft, getTodos, getTodosBySearch, updateTodos} from "@/actions/todo/todo.action";
 import {Database} from "@/types/supabase";
 
 type TodoDto = Database['public']['Tables']['todos_with_rls']['Row']
 
-const useTodosController = (userId = '') => {
+const useTodosController = () => {
     /** Loading State **/
     const [loading, setLoading] = useState<boolean>(true);
     /** Todos State **/
@@ -24,8 +17,7 @@ const useTodosController = (userId = '') => {
     const onGetTodos = async () => {
         setLoading(true)
         try {
-            const result = await getTodosByUserId(userId);
-            console.log('useTodosController onGetTodos')
+            const result = await getTodos();
             console.log(result);
             if (result) setTodos(result);
         } catch (error) {
@@ -66,7 +58,7 @@ const useTodosController = (userId = '') => {
         if (terms) {
             const todoResult = await getTodosBySearch(terms);
             if (todoResult) setTodos(todoResult);
-        } else {
+        }else {
             await onGetTodos();
         }
     }
