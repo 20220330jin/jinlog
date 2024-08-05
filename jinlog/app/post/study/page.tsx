@@ -1,20 +1,24 @@
 'use client'
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
-import {nord} from "react-syntax-highlighter/dist/esm/styles/prism";
 import MarkdownPreview from "@/components/MarkdownPreview";
 import {useState} from "react";
+import StudyPostContainer from "@/app/post/study/components/StudyPostContainer";
 
-const Page = () => {
+const Page = async () => {
+    // 유저 정보
+    // const user = await getUser({serverComponent: true})
+    // console.log(user);
     const [markdown, setMarkdown] = useState('');
     const test = 'TEST'
     console.log(markdown)
     const handlerContent = (content: string) => {
         setMarkdown(content);
     }
+
+
+
     return (
         <div>
+            <StudyPostContainer/>
             <div>STUDY PAGE</div>
             <div>
                 <div className="w-full md:w-1/2 p-2">

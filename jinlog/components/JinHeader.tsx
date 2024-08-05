@@ -17,7 +17,7 @@ const JinHeader = () => {
     const moveMenu = (e: string) => {
         console.log(e)
         if(e === 'STUDY'){
-            router.push('/post/study')
+            router.push('/post/study/list')
         }
     }
     return (
