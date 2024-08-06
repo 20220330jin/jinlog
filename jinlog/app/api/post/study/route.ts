@@ -1,4 +1,5 @@
 import {PostService} from "@/service/PostService";
+import {NextResponse} from "next/server";
 
 /**
  * STUDY 블로그 APIs
@@ -12,5 +13,7 @@ export async function GET() {
     console.log('Study API');
     const posts = await PostService.getAllPosts();
     console.log('posts', posts);
+
+    return NextResponse.json({posts});
 
 }
