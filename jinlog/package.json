@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
-    "supabase:gen": "npx supabase gen types typescript --project-id 'mrrzrdcdgkypckdhiyff' --schema public > types/supabase.ts"
+    "supabase:gen": "npx supabase gen types typescript --project-id 'mrrzrdcdgkypckdhiyff' --schema public > types/supabase.ts",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "-": "^0.0.1",
