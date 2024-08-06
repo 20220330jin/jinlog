@@ -1,5 +1,5 @@
 import {getUser} from "@/actions/auth/user.action";
-import StudyPostWriteContainer from "@/app/post/study/components/StudyPostWriteContainer";
+import StudyPostWriteContainer from "@/components/post/study/StudyPostWriteContainer";
 
 /**
  * 글 작성 페이지
