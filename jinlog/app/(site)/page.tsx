@@ -1,12 +1,11 @@
+import HomeContainer from "@/components/HomeContainer";
+import {Fragment} from "react";
+
 const Page = () => {
     return (
-        <main className='px-40 flex flex-1'>
-            <div>
-                <div>
-                    <h1>Home Page</h1>
-                </div>
-            </div>
-        </main>
+        <Fragment>
+            <HomeContainer/>
+        </Fragment>
     )
 }
 
