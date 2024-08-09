@@ -21,7 +21,11 @@ interface StudyPostListContainerProps {
  * @constructor
  */
 const getStudyPostList = () => {
-    const testResult = axios.get('/post/study');
+    // STUDY 카테고리 조회
+    const params = {
+        category: 'STUDY'
+    }
+    const testResult = axios.get('/post/study', {params});
 }
 
 
