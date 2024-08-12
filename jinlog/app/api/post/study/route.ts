@@ -1,17 +1,20 @@
 import {PostService} from "@/service/PostService";
-import {NextResponse} from "next/server";
+import {NextRequest, NextResponse} from "next/server";
 
 /**
  * STUDY 블로그 APIs
  * @constructor
  */
-export async function GET() {
+export async function GET(req: NextRequest) {
     /**
      * 게시글 조회 API
      */
+    // parameter 추출
+    const {searchParams} = new URL(req.url);
+    const category = searchParams.get('category') || '';
     // const result = await
     console.log('Study API');
-    const posts = await PostService.getAllPosts();
+    const posts = await PostService.getAllPosts(category);
     console.log('posts', posts);
 
     return NextResponse.json({posts});
