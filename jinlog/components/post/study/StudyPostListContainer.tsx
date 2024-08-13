@@ -16,6 +16,8 @@ interface StudyPostListContainerProps {
 }
 
 const StudyPostListContainer = ({userId}: StudyPostListContainerProps) => {
+    console.log("DATABASE_URL:", process.env.DATABASE_URL);
+    console.log("DIRECT_URL:", process.env.DIRECT_URL);
     /** STUDOY POST 리스트 state **/
     const [studyPosts, setStudyPosts] = useState([]);
     /**
