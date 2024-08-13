@@ -5,7 +5,7 @@ import axios from 'axios';
 // Create a custom instance of axios with some default settings
 const instance = axios.create({
     // Set the base URL for all requests
-    baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000/api',
+    baseURL: process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_API_BASE_URL : 'http://localhost:3000/api',
     // Set a timeout for requests (in milliseconds)
     timeout: 10000, // 10 seconds
     // Set default headers
