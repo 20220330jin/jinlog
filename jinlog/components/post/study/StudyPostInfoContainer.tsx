@@ -1,5 +1,5 @@
 'use client'
-import StudyTitleList from "@/components/post/study/StudyTitleList";
+import TitleList from "@/components/post/TitleList";
 import {useEffect, useState} from "react";
 import axios from "@/lib/axios";
 import StudyPostInfo from "@/components/post/study/StudyPostInfo";
@@ -32,7 +32,7 @@ const StudyPostInfoContainer = () => {
                 <div className='flex flex-wrap justify-between gap-3 p-4'>
                     <p className='text-[#0d151c] tracking-light text-[32px] font-bold leading-tight min-w-72'>STUDY</p>
                 </div>
-                <StudyTitleList posts={studyPosts}/>
+                <TitleList posts={studyPosts}/>
                 <StudyPostInfo/>
             </div>
         </div>

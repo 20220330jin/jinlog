@@ -1,7 +1,7 @@
 'use client'
 import axios from "@/lib/axios";
 import {useEffect, useState} from "react";
-import StudyTitleList from "@/components/post/study/StudyTitleList";
+import TitleList from "@/components/post/TitleList";
 import StudyPostList from "@/components/post/study/StudyPostList";
 
 /**
@@ -45,7 +45,7 @@ const StudyPostListContainer = ({userId}: StudyPostListContainerProps) => {
                     <p className='text-[#0d151c] tracking-light text-[32px] font-bold leading-tight min-w-72'>STUDY</p>
                 </div>
                 {/* 포스트 제목 리스트 */}
-                <StudyTitleList posts={studyPosts}/>
+                <TitleList posts={studyPosts}/>
                 {/* 포스트 리스트: 카드형식 */}
                 <StudyPostList posts={studyPosts}/>
             </div>
