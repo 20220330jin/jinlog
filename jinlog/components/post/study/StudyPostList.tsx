@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import {PostResponse} from "@/app/types/post";
-import {formatDateTime} from "@/util/DateUtil";
+import {formatDateTime, formatDateTimeAgo} from "@/util/DateUtil";
 
 /**
  * STUDY 블로그 포스트 리스트 컴포넌트
@@ -26,7 +26,7 @@ const StudyPostList = ({
                             </div>
                             <div className='p-4'>
                                 <h4>{post.title}</h4>
-                                <p>{formatDateTime(post.createdAt)}</p>
+                                <p>{formatDateTimeAgo(post.createdAt)}</p>
                             </div>
                         </div>
                     ))}
