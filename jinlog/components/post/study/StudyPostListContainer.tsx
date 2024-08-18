@@ -16,8 +16,6 @@ interface StudyPostListContainerProps {
 }
 
 const StudyPostListContainer = ({userId}: StudyPostListContainerProps) => {
-    console.log("DATABASE_URL:", process.env.DATABASE_URL);
-    console.log("DIRECT_URL:", process.env.DIRECT_URL);
     /** STUDOY POST 리스트 state **/
     const [studyPosts, setStudyPosts] = useState([]);
     /**
@@ -46,7 +44,9 @@ const StudyPostListContainer = ({userId}: StudyPostListContainerProps) => {
                 <div className='flex flex-wrap justify-between gap-3 p-4'>
                     <p className='text-[#0d151c] tracking-light text-[32px] font-bold leading-tight min-w-72'>STUDY</p>
                 </div>
+                {/* 포스트 제목 리스트 */}
                 <StudyTitleList posts={studyPosts}/>
+                {/* 포스트 리스트: 카드형식 */}
                 <StudyPostList posts={studyPosts}/>
             </div>
         </div>
