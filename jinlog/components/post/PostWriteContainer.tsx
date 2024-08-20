@@ -1,10 +1,25 @@
+'use client'
+import PostWriteForm from "@/components/post/PostWriteForm";
+
 /**
  * 블로그 포스트 작성 공통 컨테이너
  * @constructor
  */
-import PostWriteForm from "@/components/post/PostWriteForm";
+
+interface PostData {
+    title: string;
+    content: string;
+}
 
 const PostWriteContainer = () => {
+
+    /**
+     * 블로그 포스트 작성 핸들러
+     */
+    const handleSubmit = (postData: PostData) => {
+        console.log('handlePostWrite');
+        console.log(postData)
+    }
 
     return (
         <div className='px-40 flex flex-1 justify-center rounded-full py-5'>
@@ -12,7 +27,7 @@ const PostWriteContainer = () => {
                 <div className='flex flex-wrap justify-between gap-3 p-4'>
                     <p className='text-[#0d151c] tracking-light text-[32px] font-bold leading-tight min-w-72'>STUDY</p>
                 </div>
-                <PostWriteForm/>
+                <PostWriteForm onSubmit={handleSubmit}/>
             </div>
         </div>
     )

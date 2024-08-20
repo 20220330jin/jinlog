@@ -2,6 +2,7 @@
 import {Fragment, useState} from "react";
 import 'react-quill/dist/quill.snow.css'
 import dynamic from "next/dynamic";
+// import ReactQuill from "react-quill";
 
 /**
  * Quill Editor
@@ -14,7 +15,11 @@ interface PostData {
     content: string;
 }
 
-const QuillEditor = () => {
+interface QuillEditorProps {
+    onSubmit: (data: PostData) => void;
+}
+
+const QuillEditor = ({onSubmit}: QuillEditorProps) => {
     const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
     /** 포스트 제목/내용 state **/
     const [postData, setPostData] = useState<PostData>({
@@ -39,9 +44,15 @@ const QuillEditor = () => {
             [field]: value
         }))
     }
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        onSubmit(postData);
+    };
+
     return (
         <Fragment>
-            <form>
+            <form onSubmit={handleSubmit}>
                 {/* 글 제목 부분 */}
                 <div>
                     <div>
@@ -54,6 +65,7 @@ const QuillEditor = () => {
                     <ReactQuill theme='snow' modules={modules} placeholder='Write..'
                                 onChange={(content) => handleInputChange('content', content)}/>
                 </div>
+                <button type="submit">Submit Post</button>
             </form>
         </Fragment>
     )
