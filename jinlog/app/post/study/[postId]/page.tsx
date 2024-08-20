@@ -11,11 +11,9 @@ type StudyPostInfoPageProps = {
 }
 const StudyPostInfoPage = ({params}: StudyPostInfoPageProps) => {
     /** 게시글 ID **/
-    console.log(params)
     return (
         <div>
-            <h1>StudyPostInfoPage</h1>
-            <StudyPostInfoContainer/>
+            <StudyPostInfoContainer postId={params.postId}/>
         </div>
     )
 }

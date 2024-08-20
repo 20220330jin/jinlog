@@ -15,7 +15,6 @@ const JinHeader = () => {
      * 메뉴 이동
      */
     const moveMenu = (e: string) => {
-        console.log(e)
         if(e === 'STUDY'){
             router.push('/post/study/list')
         }
@@ -35,7 +34,7 @@ const JinHeader = () => {
             </div>
             <div className='flex flex-1 justify-end gap-8'>
                 <div className='flex items-center gap-9'>
-                    <a onClick={(e) => moveMenu(e.currentTarget.textContent || '')} className='text-[#0d151c] text-sm font-medium leading-normal'>STUDY</a>
+                    <a onClick={(e) => moveMenu(e.currentTarget.textContent || '')} className='text-[#0d151c] text-sm font-medium leading-normal cursor-pointer'>STUDY</a>
                     <a className='text-[#0d151c] text-sm font-medium leading-normal'>TRAVEL</a>
                     <a className='text-[#0d151c] text-sm font-medium leading-normal'>RESTAURANT</a>
                     <a className='text-[#0d151c] text-sm font-medium leading-normal'>TODO</a>

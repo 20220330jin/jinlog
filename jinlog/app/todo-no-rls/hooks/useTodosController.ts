@@ -25,8 +25,6 @@ const useTodosController = (userId = '') => {
         setLoading(true)
         try {
             const result = await getTodosByUserId(userId);
-            console.log('useTodosController onGetTodos')
-            console.log(result);
             if (result) setTodos(result);
         } catch (error) {
             console.error(error)

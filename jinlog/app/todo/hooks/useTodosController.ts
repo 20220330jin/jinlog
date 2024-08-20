@@ -16,8 +16,6 @@ const useTodosController = (ownerUserId = "") => {
 
     const onGetTodos = useCallback(async () => {
         setLoading(true);
-        console.log('useTodosController')
-        console.log(ownerUserId)
         try {
             const resultTodos = await getTodosByUserId(ownerUserId);
             if (resultTodos) setTodos(resultTodos);

@@ -14,7 +14,6 @@ const HomePostList = ({
                           posts = []
                       }: HomePostListProps) => {
 
-    console.log(posts)
     return (
         <Fragment>
             {posts && posts.map((post) => (

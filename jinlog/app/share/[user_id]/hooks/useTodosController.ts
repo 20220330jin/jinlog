@@ -18,7 +18,6 @@ const useTodosController = () => {
         setLoading(true)
         try {
             const result = await getTodos();
-            console.log(result);
             if (result) setTodos(result);
         } catch (error) {
             console.error(error)

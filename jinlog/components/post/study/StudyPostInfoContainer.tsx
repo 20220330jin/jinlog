@@ -4,7 +4,13 @@ import {useEffect, useState} from "react";
 import axios from "@/lib/axios";
 import StudyPostInfo from "@/components/post/study/StudyPostInfo";
 
-const StudyPostInfoContainer = () => {
+interface StudyPostInfoContainerProps {
+    postId: number;
+}
+
+const StudyPostInfoContainer = ({
+    postId
+                                }:StudyPostInfoContainerProps) => {
     /** STUDOY POST 리스트 state **/
     const [studyPosts, setStudyPosts] = useState([]);
     /**
@@ -15,7 +21,8 @@ const StudyPostInfoContainer = () => {
     const getStudyPostList = () => {
         // STUDY 카테고리 조회
         const params = {
-            category: 'STUDY'
+            category: 'STUDY',
+            action: 'getStudyPostList'
         }
         axios.get('/post/study', {params})
             .then((res) => {
@@ -23,8 +30,19 @@ const StudyPostInfoContainer = () => {
             });
     }
 
+    /**
+     * 블로그 포스트 상세 게시글 조회
+     */
+    const getPostInfo = () => {
+        axios.get(`/post/${postId}`)
+            .then((res) => {
+                console.log(res.data)
+            });
+    }
+
     useEffect(() => {
         getStudyPostList();
+        getPostInfo();
     }, []);
     return (
         <div className='px-40 flex flex-1 justify-center rounded-full py-5'>

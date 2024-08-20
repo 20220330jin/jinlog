@@ -12,8 +12,6 @@ const TodoContainer = ({ownerUserId}: TodoContainerProps) => {
 
     const {loading, todos, onCreateEmptyTodos, onDeleteTodos, onSearchTodos, onUpdateTodos} = useTodosController();
 
-    console.log({loading, todos})
-
     return (
         <div>
             <TodoList

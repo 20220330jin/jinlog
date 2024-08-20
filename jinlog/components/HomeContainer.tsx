@@ -28,7 +28,6 @@ const HomeContainer = () => {
         }
         axios.get('/post', {params})
             .then((res) => {
-                console.log(res);
                 setPosts(res.data.posts);
             })
     }

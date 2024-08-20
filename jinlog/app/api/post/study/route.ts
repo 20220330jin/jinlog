@@ -13,9 +13,7 @@ export async function GET(req: NextRequest) {
     const {searchParams} = new URL(req.url);
     const category = searchParams.get('category') || '';
     // const result = await
-    console.log('Study API');
     const posts = await PostService.getAllPosts(category);
-    console.log('posts', posts);
 
     return NextResponse.json({posts});
 

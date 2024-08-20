@@ -11,6 +11,7 @@ export async function GET(req: NextRequest){
 
     // parameter 추출
     const {searchParams} = new URL(req.url);
+    const action = searchParams.get('action') || '';
     const category = searchParams.get('category') || '';
     const posts = await PostService.getAllPosts(category);
 

@@ -6,10 +6,6 @@ export async function GET(request: Request) {
     const overrideOrigin = process.env.NEXT_PUBLIC_AUTH_REDIRECT_TO_HOME
 
     const {searchParams, origin} = new URL(request.url)
-    console.log(searchParams, origin)
-
-    console.log('-----')
-
     const code = searchParams.get('code')
     const next = searchParams.get('next')
 

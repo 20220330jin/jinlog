@@ -3,6 +3,7 @@ import axios from "@/lib/axios";
 import {useEffect, useState} from "react";
 import TitleList from "@/components/post/TitleList";
 import StudyPostList from "@/components/post/study/StudyPostList";
+import {useRouter} from "next/navigation";
 
 /**
  * STUDY 블로그 리스트 Container
@@ -16,6 +17,8 @@ interface StudyPostListContainerProps {
 }
 
 const StudyPostListContainer = ({userId}: StudyPostListContainerProps) => {
+    /** 라우터 **/
+    const router = useRouter()
     /** STUDOY POST 리스트 state **/
     const [studyPosts, setStudyPosts] = useState([]);
     /**
@@ -26,7 +29,8 @@ const StudyPostListContainer = ({userId}: StudyPostListContainerProps) => {
     const getStudyPostList = () => {
         // STUDY 카테고리 조회
         const params = {
-            category: 'STUDY'
+            category: 'STUDY',
+            actions: 'getStudyPostList'
         }
         axios.get('/post/study', {params})
             .then((res) => {
@@ -43,6 +47,9 @@ const StudyPostListContainer = ({userId}: StudyPostListContainerProps) => {
             <div className='layout-content-container flex flex-col max-w-[960px] flex-1'>
                 <div className='flex flex-wrap justify-between gap-3 p-4'>
                     <p className='text-[#0d151c] tracking-light text-[32px] font-bold leading-tight min-w-72'>STUDY</p>
+                    <div>
+                        <button onClick={() => router.push('/post/write')}>글 작성</button>
+                    </div>
                 </div>
                 {/* 포스트 제목 리스트 */}
                 <TitleList posts={studyPosts}/>
