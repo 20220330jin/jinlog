@@ -1,4 +1,3 @@
-import {Fragment} from "react";
 import PostWriteContainer from "@/components/post/PostWriteContainer";
 
 /**

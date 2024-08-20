@@ -3,7 +3,6 @@
  * @constructor
  */
 import PostWriteForm from "@/components/post/PostWriteForm";
-import {useState} from "react";
 
 const PostWriteContainer = () => {
 
