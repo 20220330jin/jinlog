@@ -21,5 +21,19 @@ export const PostRepository = {
             }
         })
         return results
+    },
+
+    /**
+     * 블로그 게시글 작성 Repository
+     */
+    async createPost(data: any) {
+        await prisma.post.create({
+            data: {
+                title: data.title,
+                content: data.content,
+                category: data.category
+            }
+        })
     }
 }
+

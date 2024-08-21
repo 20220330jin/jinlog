@@ -1,5 +1,7 @@
 'use client'
 import PostWriteForm from "@/components/post/PostWriteForm";
+import axios from "@/lib/axios";
+import {useRouter} from "next/navigation";
 
 /**
  * 블로그 포스트 작성 공통 컨테이너
@@ -12,13 +14,35 @@ interface PostData {
 }
 
 const PostWriteContainer = () => {
+    /** 라우터 **/
+    const router = useRouter();
 
     /**
      * 블로그 포스트 작성 핸들러
      */
     const handleSubmit = (postData: PostData) => {
-        console.log('handlePostWrite');
-        console.log(postData)
+        console.log(postData);
+        createPost(postData);
+
+    }
+
+    /**
+     * 블로그 포스트 작성 API
+     */
+    const createPost = async (postData: PostData) => {
+        const params = {
+            ...postData,
+            category: 'STUDY'
+        }
+        const result = await axios.post('/post/write', params)
+            .then((res) => {
+                console.log(res);
+                // 임시작업
+                if(res.status === 200){
+                    router.push('/post/study/list');
+                }
+            })
+        console.log(result);
     }
 
     return (

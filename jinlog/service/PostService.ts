@@ -9,4 +9,11 @@ export const PostService = {
         const result = PostRepository.getAllPosts(category);
         return result;
     },
+
+    /**
+     * 게시글 작성 Service
+     */
+    createPost(data: any) {
+        PostRepository.createPost(data);
+    }
 }
