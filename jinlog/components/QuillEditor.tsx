@@ -2,6 +2,7 @@
 import {Fragment, useState} from "react";
 import 'react-quill/dist/quill.snow.css'
 import dynamic from "next/dynamic";
+
 // import ReactQuill from "react-quill";
 
 /**
@@ -19,8 +20,9 @@ interface QuillEditorProps {
     onSubmit: (data: PostData) => void;
 }
 
+const ReactQuill = dynamic(() => import('react-quill'), {ssr: false});
+
 const QuillEditor = ({onSubmit}: QuillEditorProps) => {
-    const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
     /** 포스트 제목/내용 state **/
     const [postData, setPostData] = useState<PostData>({
         title: '',
