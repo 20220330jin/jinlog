@@ -1,6 +1,6 @@
 'use client'
 import {Fragment, useState} from "react";
-import 'react-quill/dist/quill.snow.css'
+// import 'react-quill/dist/quill.snow.css'
 import dynamic from "next/dynamic";
 
 // import ReactQuill from "react-quill";

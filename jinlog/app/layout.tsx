@@ -5,6 +5,7 @@ import {getUser} from "@/actions/auth/user.action";
 import AuthHeader from "@/components/AuthHeader";
 import JinHeader from "@/components/JinHeader";
 import HomeContainer from "@/app/(site)/HomeContainer";
+import 'react-quill/dist/quill.snow.css'
 
 const inter = Inter({subsets: ['latin']})
 
