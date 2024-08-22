@@ -13,6 +13,8 @@ const StudyPostInfoContainer = ({
                                 }:StudyPostInfoContainerProps) => {
     /** STUDOY POST 리스트 state **/
     const [studyPosts, setStudyPosts] = useState([]);
+    /** 블로그 포스트 상세 게시글 state **/
+    const [post, setPost] = useState({});
     /**
      * 블로그 포스트 리스트 조회 API 요청
      * @param userId
@@ -37,6 +39,7 @@ const StudyPostInfoContainer = ({
         axios.get(`/post/${postId}`)
             .then((res) => {
                 console.log(res.data)
+                setPost(res.data.post);
             });
     }
 
@@ -51,7 +54,7 @@ const StudyPostInfoContainer = ({
                     <p className='text-[#0d151c] tracking-light text-[32px] font-bold leading-tight min-w-72'>STUDY</p>
                 </div>
                 <TitleList posts={studyPosts}/>
-                <StudyPostInfo/>
+                <StudyPostInfo post={post}/>
             </div>
         </div>
     );

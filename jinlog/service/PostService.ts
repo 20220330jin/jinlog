@@ -6,8 +6,15 @@ export const PostService = {
      * - 카테고리별 조회
      */
     getAllPosts(category: string) {
-        const result = PostRepository.getAllPosts(category);
-        return result;
+        return PostRepository.getAllPosts(category);
+    },
+
+    /**
+     * 게시글 상세 조회 Service
+     */
+    getPost(postId: number) {
+        return PostRepository.getPost(postId);
+
     },
 
     /**

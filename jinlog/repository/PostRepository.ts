@@ -24,6 +24,22 @@ export const PostRepository = {
     },
 
     /**
+     * 게시글 상세 조회 Repository
+     */
+    async getPost(postId: number) {
+        const result =await prisma.post.findUnique({
+            select: {
+                title: true,
+                content: true,
+            },
+            where: {
+                id: Number(postId)
+            }
+        })
+        return result;
+    },
+
+    /**
      * 블로그 게시글 작성 Repository
      */
     async createPost(data: any) {
