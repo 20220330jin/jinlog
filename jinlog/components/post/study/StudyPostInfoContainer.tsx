@@ -3,6 +3,7 @@ import TitleList from "@/components/post/TitleList";
 import {useEffect, useState} from "react";
 import axios from "@/lib/axios";
 import StudyPostInfo from "@/components/post/study/StudyPostInfo";
+import {PostResponse} from "@/app/types/post";
 
 interface StudyPostInfoContainerProps {
     postId: number;
@@ -14,7 +15,7 @@ const StudyPostInfoContainer = ({
     /** STUDOY POST 리스트 state **/
     const [studyPosts, setStudyPosts] = useState([]);
     /** 블로그 포스트 상세 게시글 state **/
-    const [post, setPost] = useState({});
+    const [post, setPost] = useState<PostResponse>({} as PostResponse);
     /**
      * 블로그 포스트 리스트 조회 API 요청
      * @param userId
