@@ -9,12 +9,19 @@ import {getCookie, setCookie} from "cookies-next";
 
 export const createServerSideClient = async (serverComponent = false) => {
     const cookieStore = cookies();
+    // console.log(cookieStore);
+    // console.log('jin',cookieStore.get(key));
 
     return createServerClient<Database>(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, {
             cookies: {
-                get: (key) => cookieStore.get(key)?.value,
+                get: (key) => {
+                    console.log('Key:', key);
+                    const value = cookieStore.get(key)?.value;
+                    console.log('Value:', value);
+                    return value;
+                },
                 set: (key, value, options) => {
                     if (serverComponent) return
                     cookieStore.set(key, value, options);

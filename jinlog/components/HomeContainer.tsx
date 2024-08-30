@@ -26,10 +26,15 @@ const HomeContainer = () => {
         const params = {
             category: 'ALL'
         }
-        axios.get('/post', {params})
+        axios.get('/post/getAllPosts', {params})
             .then((res) => {
-                setPosts(res.data.posts);
+                console.log(res)
+                setPosts(res.data);
             })
+        // axios.get('/post/getAllPosts', {params})
+        //     .then((res) => {
+        //         setPosts(res.data.posts);
+        //     })
     }
 
     useEffect(() => {

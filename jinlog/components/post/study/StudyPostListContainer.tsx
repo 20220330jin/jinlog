@@ -32,9 +32,9 @@ const StudyPostListContainer = ({userId}: StudyPostListContainerProps) => {
             category: 'STUDY',
             actions: 'getStudyPostList'
         }
-        axios.get('/post/study', {params})
+        axios.get('/post/getAllPosts', {params})
             .then((res) => {
-                setStudyPosts(res.data.posts);
+                setStudyPosts(res.data);
             });
     }
 

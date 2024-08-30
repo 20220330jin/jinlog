@@ -5,8 +5,16 @@
  */
 export const formatDate = (date: string) => {
     let dateFormat = new Date(date);
+    const pad = (num: number) => (num < 10 ? '0' + num : num);
 
-    return dateFormat.toISOString().split('T')[0];
+    const year = dateFormat.getFullYear();
+    const month = pad(dateFormat.getMonth() + 1);
+    const day = pad(dateFormat.getDate());
+    const hours = pad(dateFormat.getHours());
+    const minutes = pad(dateFormat.getMinutes());
+    const seconds = pad(dateFormat.getSeconds());
+
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
 
 /**
@@ -16,8 +24,17 @@ export const formatDate = (date: string) => {
  */
 export const formatDateTime = (date: string) => {
     let dateFormat = new Date(date);
+    const pad = (num: number) => (num < 10 ? '0' + num : num);
 
-    return dateFormat.toISOString().replace('T', ' ').split('.')[0];
+    const year = dateFormat.getFullYear();
+    const month = pad(dateFormat.getMonth() + 1);
+    const day = pad(dateFormat.getDate());
+    const hours = pad(dateFormat.getHours());
+    const minutes = pad(dateFormat.getMinutes());
+    const seconds = pad(dateFormat.getSeconds());
+
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+
 }
 
 /**

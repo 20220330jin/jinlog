@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import axios from "@/lib/axios";
 import StudyPostInfo from "@/components/post/study/StudyPostInfo";
 import {PostResponse} from "@/app/types/post";
+import {cookies} from "next/headers";
 
 interface StudyPostInfoContainerProps {
     postId: number;
@@ -16,6 +17,7 @@ const StudyPostInfoContainer = ({
     const [studyPosts, setStudyPosts] = useState([]);
     /** 블로그 포스트 상세 게시글 state **/
     const [post, setPost] = useState<PostResponse>({} as PostResponse);
+
     /**
      * 블로그 포스트 리스트 조회 API 요청
      * @param userId
@@ -27,9 +29,9 @@ const StudyPostInfoContainer = ({
             category: 'STUDY',
             action: 'getStudyPostList'
         }
-        axios.get('/post/study', {params})
+        axios.get('/post/getAllPosts', {params})
             .then((res) => {
-                setStudyPosts(res.data.posts);
+                setStudyPosts(res.data);
             });
     }
 
@@ -37,10 +39,10 @@ const StudyPostInfoContainer = ({
      * 블로그 포스트 상세 게시글 조회
      */
     const getPostInfo = () => {
-        axios.get(`/post/${postId}`)
+        axios.get(`/post/info/${postId}`)
             .then((res) => {
                 console.log(res.data)
-                setPost(res.data.post);
+                setPost(res.data);
             });
     }
 
