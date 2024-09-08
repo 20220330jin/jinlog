@@ -2,6 +2,7 @@
 import {FcGoogle} from "react-icons/fc";
 import React from "react";
 import {useRouter} from "next/navigation";
+import axios from "@/lib/axios";
 
 const JinHeader = () => {
     const router = useRouter();
@@ -19,6 +20,14 @@ const JinHeader = () => {
             router.push('/post/study/list')
         }
     }
+
+    /**
+     * 로그인
+     */
+    // const loginHandler = () => {
+    //     window.location.href = "http://localhost:8080/oauth2/authorization/google";
+    // }
+
     return (
         <header
             className='flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7eef4] px-10 py-3'>
@@ -45,7 +54,8 @@ const JinHeader = () => {
                         className='flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#e7eef4] text-[#0d151c] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5'>
                         <div>MENU</div>
                     </button>
-                    <button onClick={() => router.push('/auth')}
+                    {/*<button onClick={loginHandler}*/}
+                    <button onClick={() => router.push('/login')}
                         className='flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#e7eef4] text-[#0d151c] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5'>
                         <div>LOGIN</div>
                     </button>
