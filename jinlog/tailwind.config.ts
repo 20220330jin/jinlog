@@ -16,6 +16,7 @@ const config: Config = {
       backgroundColor: {
         'custom-red': '#FF1828',
         'custom-red-hover':'#E31420',
+        'custom-disabled-button':'#CCCCCC',
       },
       colors: {
         'custom-red': '#FF1828',
